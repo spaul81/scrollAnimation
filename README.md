@@ -20,16 +20,11 @@ It use [animate.css](https://github.com/daneden/animate.css) animations.
 
 ### Installation
 
-- Bower
-
-```bash
-   bower install 
-```
 
 - NPM
 
 ```bash
-   npm install 
+   npm install https://github.com/spaul81/scrollAnimation.git
 ```
 
 ### Usage
