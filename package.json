@@ -1,0 +1,23 @@
+{
+  "name": "scrollanimation",
+  "version": "1.0.0",
+  "description": "Scroll Animation",
+  "main": "scrollAnimation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spaul81/scrollAnimation.git"
+  },
+  "keywords": [
+    "scroll",
+    "animation"
+  ],
+  "author": "Pavel Strashevskiy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spaul81/scrollAnimation/issues"
+  },
+  "homepage": "https://github.com/spaul81/scrollAnimation#readme"
+}

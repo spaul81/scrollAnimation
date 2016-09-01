@@ -34,8 +34,9 @@
         base.preInit = function () {
             base.$el.css({'animation-name': 'none'});
             base.$el.css({'opacity': '0'});
-            window.scrollBy(0,5);
-            window.scrollBy(0,-5);
+            //window.scrollBy(0,5);
+            //window.scrollBy(0,-5);
+            base.init();
         };
 
         $(window).ready(function () {
