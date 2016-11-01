@@ -32,7 +32,7 @@ It use [animate.css](https://github.com/daneden/animate.css) animations.
 - HTML
 
 ```html
-  <section class="is-animated slideInLeft"></section>
+  <section class="is-animated slideInLeft" animation-delay=".1s"></section>
   <section class="is-animated slideInRight"></section>
 ```
 

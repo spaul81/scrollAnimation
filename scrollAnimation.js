@@ -14,6 +14,8 @@
         base.$el = $(el);
         base.el = el;
 
+        var attrAnimationDelay;
+
         // Add a reverse reference to the DOM object
         base.$el.data("scrollAnimation", base);
 
@@ -22,9 +24,11 @@
 
             // Put your initialization code here
             var posIsOnScreen = base.isOnView();
-            console.log(posIsOnScreen);
+            //console.log(posIsOnScreen);
             if (posIsOnScreen) {
-                base.$el.css({'animation-name': '', 'animationDelay': options.animationDelay});
+                attrAnimationDelay = base.$el.attr('animation-delay');
+                // base.$el.css({'animation-name': '', 'animationDelay': options.animationDelay});
+                base.$el.css({'animation-name': '', 'animationDelay': attrAnimationDelay});
                 base.$el.removeClass('is-hidden');
                 base.$el.css({'opacity': '1'});
                 base.$el.addClass('animated');
@@ -58,8 +62,8 @@
             // console.log('window.innerHeight'+window.innerHeight);
             // console.log('window.pageYOffset'+window.pageYOffset);
 
-            return bounds.top < window.innerHeight && bounds.bottom-50 < window.innerHeight &&
-                bounds.bottom>0;
+            return bounds.top < window.innerHeight && bounds.bottom - 50 < window.innerHeight &&
+                bounds.bottom > 0;
         };
     };
 
