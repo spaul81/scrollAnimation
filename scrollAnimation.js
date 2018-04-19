@@ -18,28 +18,28 @@
 
         // Add a reverse reference to the DOM object
         base.$el.data("scrollAnimation", base);
-
+        var posIn = false;
         base.init = function () {
             base.options = $.extend({}, $.scrollAnimation.defaultOptions, options);
 
             // Put your initialization code here
-            var posIsOnScreen = base.isOnView();
-            //console.log(posIsOnScreen);
-            if (posIsOnScreen) {
-                attrAnimationDelay = base.$el.attr('animation-delay');
-                // base.$el.css({'animation-name': '', 'animationDelay': options.animationDelay});
-                base.$el.css({'animation-name': '', 'animationDelay': attrAnimationDelay});
+
+            if (base.isOnView() && posIn == false) {
+                console.log(posIn + '  posIn');
+                attrAnimationDelay = base.$el.attr('data-animtion-delay');
+                console.log(attrAnimationDelay + '  attrAnimationDelay');
+                base.$el.css({'animation-name': '', 'animation-delay': attrAnimationDelay, 'opacity': '1'});
                 base.$el.removeClass('is-hidden');
-                base.$el.css({'opacity': '1'});
                 base.$el.addClass('animated');
+                posIn = true;
+
             }
         };
 
         base.preInit = function () {
             base.$el.css({'animation-name': 'none'});
             base.$el.css({'opacity': '0'});
-            //window.scrollBy(0,5);
-            //window.scrollBy(0,-5);
+            posIn = false;
             base.init();
         };
 
@@ -49,9 +49,10 @@
 
         // Init plugin when window scroll
         $(window).scroll(function () {
-
             // Run initializer
-            base.init();
+            if (posIn == false) {
+                base.init();
+            }
         });
 
         base.isOnView = function () {
@@ -62,14 +63,14 @@
             // console.log('window.innerHeight'+window.innerHeight);
             // console.log('window.pageYOffset'+window.pageYOffset);
 
-            return bounds.top < window.innerHeight && bounds.bottom - 50 < window.innerHeight &&
+            return bounds.top < window.innerHeight && bounds.bottom - window.innerHeight * 1.15 < window.innerHeight &&
                 bounds.bottom > 0;
         };
     };
 
     $.scrollAnimation.defaultOptions = {
-        selector: "is-animated",
-        animationDelay: ".0s"
+        //   selector: "is-animated",
+        //  animationDelay: ".0s"
     };
 
     $.fn.scrollAnimation = function (options) {
